@@ -27,6 +27,7 @@ function limpiarForm() {
 }
 
 function guardarContacto(event) {
+    var indice = contactos.push()-1;
     event.preventDefault();
     con = new contacto();
     con.nombre = gi("txtnombre").value;
@@ -36,14 +37,43 @@ function guardarContacto(event) {
     contactos.push(con);
     localStorage.setItem("contacto", JSON.stringify(contactos));
     alert("¡Contacto Guardado!");
-    mostrarContacto(con);
+    mostrarContacto(con,indice);
     limpiarForm();
     ocultarForm();
 
+
 }
-function mostrarContacto(contacto) {
+
+function eliminarContacto (indice,event) {
+    console.log(indice)
+    contactos.splice(indice,1);
+    console.log(contactos);
+    console.log(event.target);
+    var tr = event.target.parentNode.parentNode;
+    tr.parentNode.removeChild(tr);
+    localStorage.setItem('contacto',JSON.stringify(contactos));
+
+}
+
+function mostrarContacto(contacto,indice) {
+    console.log(indice);
     var tabla = gi('tabla');
-    tabla.innerHTML += `<tr><td>${contacto.nombre}</td><td>${contacto.apellido}</td><td>${contacto.celular}</td><td>${contacto.correo}</td></tr>`
+    tabla.innerHTML +=
+    `<tr id = fila class="seleccionada">
+        <td>${contacto.nombre}</td>
+        <td>${contacto.apellido}</td>
+        <td>${contacto.celular}</td>
+        <td>${contacto.correo}</td>
+        <td><button>Editar</button></td>
+        <td><button id="eliminar" onclick="eliminarContacto(${indice},event)">Eliminar</button> </td> 
+    </tr>`
     tabla.style.border = "solid";
+    }
+
+
+
+function editarContacto() {
+    con = new contacto();
+     
 
     }
