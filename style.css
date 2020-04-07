@@ -1,0 +1,32 @@
+#todosLosContactos
+{
+    float: left;
+    font-family: Arial,sans-serif;
+    font-size: 20px;
+    /*word-spacing: 100px;*/
+
+
+}
+@font-face
+{
+    font-family: "mifuente";
+    src: url("mifuente.ttf");
+}
+#titulo
+{
+    font-family: mifuente,sans-serif;
+    text-shadow: 5px 5px 8px black;
+    text-align: center;
+    font-size: 40px;
+}
+body
+{
+    background: url("imagenes/bkg.jpg");
+    background-size: cover;
+}
+.tablaContactos, th,td
+{
+    border: 1px solid black;
+    font-family: Gadugi,sans-serif;
+
+}

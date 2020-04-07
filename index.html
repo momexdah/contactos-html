@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Agenda</title>
+</head>
+<body>
+    <header>
+        <div id="titulo">
+            <h1>CONTACTOS</h1>
+        </div>
+    </header>
+    <div id="panel_add">
+        <button onclick="agregarContacto();">Agregar contacto</button>
+        <button onclick="mostrarContacto();">Actualizar</button>
+    </div>
+    <div id="divformulario" style="display: none">
+        <form onsubmit="guardarContacto()">
+            <table>
+                <tr>
+                    <th>Nombres:</th>
+                    <td><input minlength="3" type="text" id="txtnombre"></td>
+                </tr>
+                <tr>
+                    <th>Apellidos:</th>
+                    <td><input minlength="3" type="text" id="txtapellido"></td>
+                </tr>
+                <tr>
+                    <th>Celular:</th>
+                    <td><input type="text" id="txtcelular" maxlength="9" minlength="9" pattern="^\d+$"></td>
+                </tr>
+                <tr>
+                    <th>Correo:</th>
+                    <td><input type="email" placeholder="ejemplo@test.com" id="txtcorreo"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <button>Guardar</button>
+                    </td>
+                </tr>
+
+            </table>
+        </form>
+
+
+    </div>
+    <fieldset>
+        <legend>Contactos</legend>
+        <div id="todosLosContactos">
+            <table class="tablaContactos" id="tabla">
+                <tr>
+                    <th>NOMBRE</th>
+                    <th>APELLIDO</th>
+                    <th>CELULAR</th>
+                    <th>CORREO</th>
+                </tr>
+            </table>
+
+        </div>
+    </fieldset>
+    <script src="agregarContacto.js"></script>
+</body>
+</html>
