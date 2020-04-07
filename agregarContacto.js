@@ -27,8 +27,7 @@ function limpiarForm() {
 }
 
 function guardarContacto(event) {
-
-    //event.preventDefault();
+    event.preventDefault();
     con = new contacto();
     con.nombre = gi("txtnombre").value;
     con.apellido = gi("txtapellido").value;
