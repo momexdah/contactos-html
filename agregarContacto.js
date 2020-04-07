@@ -45,13 +45,18 @@ function guardarContacto(event) {
 }
 
 function eliminarContacto (indice,event) {
-    console.log(indice)
+    //console.log(indice)
+    var con = new contacto();
     contactos.splice(indice,1);
-    console.log(contactos);
-    console.log(event.target);
-    var tr = event.target.parentNode.parentNode;
-    tr.parentNode.removeChild(tr);
-    localStorage.setItem('contacto',JSON.stringify(contactos));
+    //console.log(contactos);
+    //console.log(event.target);
+    if(window.confirm("¿Desea eliminar este contacto?")){
+        var tr = event.target.parentNode.parentNode;
+        tr.parentNode.removeChild(tr);
+        localStorage.setItem('contacto',JSON.stringify(contactos));
+        alert("Contacto eliminado");
+    }
+
 
 }
 
